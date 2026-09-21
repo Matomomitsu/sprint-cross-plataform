@@ -15,7 +15,7 @@ processamento e acompanhar os trechos que exigem manutenção da vegetação.
 
 ## Vídeo de demonstração
 
-A demonstração completa percorre os fluxos do produto em um dispositivo real.
+A demonstração completa percorre os fluxos do produto em um iPhone real com iOS.
 
 [![Assistir à demonstração do GreenV](https://img.youtube.com/vi/irqRgWPfklU/maxresdefault.jpg)](https://youtube.com/shorts/irqRgWPfklU?feature=share)
 
@@ -157,6 +157,34 @@ flutter run -d <id-do-dispositivo> \
 7. Criar uma ordem de serviço a partir de um trecho medido.
 8. Consultar ordens e disponibilidade das equipes.
 9. Continuar uma coleta sem rede e reenviar a fila quando a conexão voltar.
+
+## Testes realizados
+
+Os testes manuais foram executados no aplicativo Flutter em um iPhone com iOS, conectado à API
+publicada em `https://greenvapi.matomomitsu.com`. Foram utilizadas credenciais corporativas e dados
+reais do ambiente integrado. A demonstração em vídeo disponível no início deste README registra os
+principais fluxos abaixo.
+
+O relatório completo também está disponível em
+[TESTES_MANUAIS.md](TESTES_MANUAIS.md).
+
+| Cenário testado | Resultado esperado | Resultado obtido | Status |
+|---|---|---|:---:|
+| Autenticar com uma conta corporativa válida | A API deve validar as credenciais, criar a sessão e abrir a página inicial. | A autenticação foi concluída e o dashboard foi exibido com a sessão ativa. | Passou |
+| Consultar o dashboard operacional | A tela deve apresentar os indicadores, sessões recentes e o atalho para iniciar uma coleta. | Os dados retornados pela API foram carregados e os componentes da página responderam corretamente. | Passou |
+| Iniciar e encerrar uma coleta de rota | O aplicativo deve abrir a câmera, acompanhar GPS, velocidade e sensores, segmentar a gravação e finalizar a sessão sem travar. | A coleta foi iniciada, a telemetria foi atualizada durante o percurso e a sessão foi encerrada corretamente. | Passou |
+| Consultar e filtrar os trechos processados | A lista deve carregar os trechos da API e permitir a filtragem pelo nível da vegetação. | Os trechos foram apresentados e os filtros atualizaram a listagem conforme a classificação escolhida. | Passou |
+| Abrir os detalhes e as evidências de um trecho | A tela deve mostrar altura, nível, medições e frames relacionados ao trecho selecionado. | O detalhe correto foi aberto e as informações e imagens vinculadas foram exibidas. | Passou |
+| Visualizar os trechos no mapa | O mapa deve posicionar os trechos georreferenciados, aplicar as cores de classificação e permitir abrir um item. | Os marcadores foram carregados nas posições esperadas e o toque abriu o fluxo do trecho selecionado. | Passou |
+| Criar uma ordem de serviço | O formulário deve aceitar prioridade, equipe, data e observações e enviar a ordem para a API. | A ordem foi enviada com sucesso e passou a aparecer na relação de ordens cadastradas. | Passou |
+| Consultar ordens e equipes | As telas devem listar situação, prioridade e equipe das ordens, além da disponibilidade das equipes. | As duas listagens foram carregadas com os dados da API e permaneceram navegáveis. | Passou |
+| Encerrar a sessão do usuário | O aplicativo deve apagar a sessão local e retornar para a tela de login. | O logout removeu a sessão armazenada e exibiu novamente a autenticação corporativa. | Passou |
+
+Além da validação manual, o projeto possui testes automatizados para autenticação, contratos HTTP,
+captura, telemetria, armazenamento persistente, fila de upload, modelos de domínio, telas e
+navegação. A suíte contém 71 testes e foi executada integralmente com sucesso por meio de
+`flutter test`. O código também passou pelo `flutter analyze` sem apontamentos, e o APK Android de
+depuração foi gerado com sucesso usando a URL da API publicada.
 
 ## Organização do código
 
