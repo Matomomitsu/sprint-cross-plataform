@@ -42,6 +42,11 @@ node_modules/
 docs/screenshots/youtube-*.jpg
 docs/screenshots/login.jpg
 
+# Binários de build. O APK é distribuído pelo GitHub Releases, nunca pelo repositório.
+*.apk
+*.aab
+*.zip
+
 # Symbolication related
 app.*.symbols
 
