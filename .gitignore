@@ -47,6 +47,10 @@ docs/screenshots/login.jpg
 *.aab
 *.zip
 
+# Arquivos de entrega da disciplina. Ficam só na máquina de quem entrega, porque levam a credencial
+# de avaliação.
+ENTREGA_*.txt
+
 # Symbolication related
 app.*.symbols
 
