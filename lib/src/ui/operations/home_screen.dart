@@ -36,9 +36,11 @@ final class HomeScreen extends StatelessWidget {
   final Future<void> Function() onSignOut;
 
   Future<_Overview> _load() async {
-    final summary = operations.readingsSummary();
-    final sessions = operations.sessions(limit: 5);
-    return _Overview(summary: await summary, sessions: await sessions);
+    final (summary, sessions) = await both(
+      operations.readingsSummary(),
+      operations.sessions(limit: 5),
+    );
+    return _Overview(summary: summary, sessions: sessions);
   }
 
   @override

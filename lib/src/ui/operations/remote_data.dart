@@ -4,6 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:greenv_capture/src/api/http_operations_gateway.dart';
 import 'package:greenv_capture/src/ui/shell.dart';
 
+/// Two requests at once, failing with the first one's own error.
+///
+/// Awaiting two futures in turn leaves the second unlistened while the first throws. Offline both
+/// fail, so every load of the home and orders screens raised an unhandled error behind the card
+/// that explained it. `Future.wait` listens to both and rethrows the first error as it was, which
+/// keeps an [OperationsFailure]'s words for the screen.
+Future<(A, B)> both<A, B>(Future<A> first, Future<B> second) async {
+  final results = await Future.wait<Object?>([first, second]);
+  return (results[0] as A, results[1] as B);
+}
+
 /// What a person sees while the API answers, and what they see when it does not.
 ///
 /// The API scales to zero and takes ten to twenty-five seconds to wake. For the first two

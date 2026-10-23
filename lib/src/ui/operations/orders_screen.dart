@@ -15,11 +15,8 @@ final class OrdersScreen extends StatelessWidget {
   final OperationsGateway operations;
   final ValueChanged<MotivaPage> onNavigate;
 
-  Future<(PageOf<ServiceOrder>, List<Team>)> _load() async {
-    final orders = operations.orders();
-    final teams = operations.teams();
-    return (await orders, await teams);
-  }
+  Future<(PageOf<ServiceOrder>, List<Team>)> _load() =>
+      both(operations.orders(), operations.teams());
 
   @override
   Widget build(BuildContext context) => MainScaffold(
