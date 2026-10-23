@@ -67,11 +67,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) => AuthPattern(
     child: AuthCard(
-      footer: TextButton.icon(
-        onPressed: () {},
-        icon: const Icon(Icons.newspaper_outlined, size: 17),
-        label: const Text('Notícias da operação'),
-      ),
       children: [
         Text('Bem-vindo', style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(height: 7),

@@ -43,10 +43,9 @@ final class AuthPattern extends StatelessWidget {
 }
 
 final class AuthCard extends StatelessWidget {
-  const AuthCard({required this.children, this.footer, super.key});
+  const AuthCard({required this.children, super.key});
 
   final List<Widget> children;
-  final Widget? footer;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -62,7 +61,7 @@ final class AuthCard extends StatelessWidget {
         ),
       ],
     ),
-    padding: const EdgeInsets.fromLTRB(26, 30, 26, 18),
+    padding: const EdgeInsets.fromLTRB(26, 30, 26, 26),
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -76,7 +75,6 @@ final class AuthCard extends StatelessWidget {
         ),
         const SizedBox(height: 28),
         ...children,
-        footer ?? const SizedBox.shrink(),
       ],
     ),
   );
