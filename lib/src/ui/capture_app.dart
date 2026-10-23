@@ -25,6 +25,15 @@ final class CaptureApp extends StatelessWidget {
     title: 'Motiva GreenV',
     debugShowCheckedModeBanner: false,
     theme: motivaTheme(),
+    // A tap anywhere that is not a field closes the keyboard. Flutter only does this on desktop
+    // and web; on a phone the login screen kept the keyboard up over the "Entrar" button, and
+    // tapping the background did nothing, so the only way out was the system back gesture.
+    // Translucent, so buttons and fields underneath still win their own taps.
+    builder: (context, child) => GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: child,
+    ),
     home: _MotivaFlow(
       controller: dependencies.capture,
       authenticator: dependencies.authenticator,

@@ -26,6 +26,8 @@ final class AuthPattern extends StatelessWidget {
         // tamanho do conteúdo e, quando o teclado sobe e o que sobra não cabe, a tela rola.
         LayoutBuilder(
           builder: (context, constraints) => SingleChildScrollView(
+            // Dragging the screen also puts the keyboard away.
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: const EdgeInsets.fromLTRB(20, 32, 20, 24),
             // O mínimo é a altura da moldura, e não um número: é ele que faz o `Center` centrar
             // de verdade em vez de empurrar o cartão para o topo de uma caixa baixa demais.

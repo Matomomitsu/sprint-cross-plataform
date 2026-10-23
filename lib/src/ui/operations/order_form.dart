@@ -93,6 +93,7 @@ final class _OrderFormState extends State<OrderForm> {
         20 + MediaQuery.viewInsetsOf(context).bottom,
       ),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
