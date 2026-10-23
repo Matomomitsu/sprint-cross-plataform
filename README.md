@@ -102,15 +102,16 @@ O documento completo, com fontes e premissas, está em [PLANO_DE_NEGOCIO.md](PLA
   sem digitar nada, na rota que já faz) e gerente de contrato (orçamento e indicadores da concessão).
 - **Público-alvo:** a Motiva como cliente âncora (5.044 km), com piloto no Rodoanel Oeste
   (SP-021, km 0–29,3); depois outras concessionárias e prestadoras de roçada.
-- **Modelo de receita:** piloto pago de 3 meses (R$ 45 mil) e assinatura por km de rodovia
-  monitorado por mês (R$ 80, R$ 60 ou R$ 45, conforme o volume), com até 2 passagens por mês em
-  cada sentido; passagens extras, kit de câmeras fixas e integração como serviços opcionais.
-- **Custos:** processamento em GPU de ≈ US$ 0,62 (R$ 3,18) por km processado; custo variável de
-  ≈ R$ 14 por km monitorado por mês; equipe enxuta de ≈ R$ 70 mil por mês. Na malha completa da
-  Motiva: custo de ≈ R$ 156 mil e receita de R$ 227 mil por mês.
+- **Modelo de receita:** piloto pago de 3 meses (R$ 45 mil) e **R$ 10 por km processado**
+  (cada km de vídeo medido, em um sentido); kit de câmeras fixas e integração como serviços
+  opcionais.
+- **Custos:** ≈ R$ 3,51 por km processado (GPU, armazenamento e extração) e equipe enxuta de
+  ≈ R$ 70 mil por mês. Na malha completa da Motiva, com 2 passagens por mês em cada sentido:
+  20.176 km processados, receita de ≈ R$ 202 mil e custo de ≈ R$ 156 mil por mês.
 - **Impacto para a Motiva:** com um gasto estimado de R$ 36 milhões por ano em roçada (referência
-  SICRO), evitar de 10% a 20% dos ciclos desnecessários vale de 1,3 a 2,7 vezes o custo da
-  assinatura, além dos ganhos em segurança viária, evidência para a fiscalização e ESG.
+  SICRO), evitar de 10% a 20% dos ciclos desnecessários vale de 1,5 a 3 vezes o custo do GreenV
+  (R$ 480 por km de rodovia por ano), além dos ganhos em segurança viária, evidência para a
+  fiscalização e ESG.
 - **Diferenciais:** captura com celular comum na viatura que já circula (contra veículo LiDAR,
   drone ou satélite), evidência auditável por trecho, funcionamento sem sinal e arquitetura modular.
 - **Principais riscos:** licença comercial do modelo de profundidade, acurácia automática ainda não

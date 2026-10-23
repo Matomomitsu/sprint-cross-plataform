@@ -125,14 +125,15 @@ Diferenciais estruturais:
 
 ## 6. Modelo de receita
 
-Assinatura (SaaS) cobrada **por quilômetro de rodovia monitorado por mês**, que é a unidade em que
-a concessionária já pensa contratos e orçamento, mais um piloto pago e serviços opcionais.
+Cobrança **por quilômetro processado**: cada quilômetro de vídeo que passa pela medição, em um
+sentido. É simples de explicar, acompanha o uso real (mais passagens na estação chuvosa, menos na
+seca) e fica bem acima do custo de processamento, de ≈ R$ 3,51 por km. A ele se somam um piloto
+pago e serviços opcionais.
 
 | Fonte de receita | Como funciona | Preço proposto |
 |---|---|---|
 | **Piloto pago** | 3 meses no Rodoanel Oeste (29,3 km, dois sentidos): implantação, cadastro de usuários, calibração com trena em campo, treinamento e operação assistida | R$ 45.000 (valor fechado) |
-| **Assinatura GreenV** | App, painel, processamento de até **2 passagens por mês em cada sentido**, armazenamento de 12 meses e suporte em horário comercial | até 500 km: **R$ 80/km/mês** · 501 a 2.000 km: **R$ 60/km/mês** · acima de 2.000 km: **R$ 45/km/mês** |
-| Passagens extras | Processamento além da franquia, por exemplo no pico da estação chuvosa | R$ 9 por km processado |
+| **Processamento GreenV** | App, painel, medição de cada km gravado, armazenamento de 12 meses e suporte em horário comercial. Faturado pelo total de km processados no mês | **R$ 10 por km processado** |
 | Kit de captura fixo (opcional) | Duas câmeras de ação 5,3K com GPS e suportes de teto, para mais precisão. Revenda ou comodato | ≈ R$ 8.000 por veículo (custo de referência) |
 | Integração | Conexão com o sistema de ordens de serviço ou o ERP da Motiva | Projeto sob orçamento |
 
@@ -140,8 +141,9 @@ a concessionária já pensa contratos e orçamento, mais um piloto pago e servi�
 implantação na nuvem da própria Motiva, com o mesmo valor por km e um desconto pela infraestrutura
 que ela assume.
 
-Exemplo, malha completa da Motiva: 5.044 km × R$ 45 = **R$ 227 mil por mês (R$ 2,72 milhões por
-ano)**, o equivalente a **R$ 540 por km por ano**.
+Exemplo, malha completa da Motiva com 2 passagens por mês em cada sentido: 5.044 km × 2 sentidos ×
+2 passagens = 20.176 km processados por mês × R$ 10 = **R$ 202 mil por mês (R$ 2,42 milhões por
+ano)**, o equivalente a **R$ 480 por km de rodovia por ano**.
 
 ## 7. Custos operacionais estimados
 
@@ -162,9 +164,9 @@ Se o lote levar 30 s em vez de 60 s, o custo cai pela metade; se levar 120 s, do
 
 ### 7.2 Custo mensal por cenário
 
-Premissas: 2 passagens por mês em cada sentido, ou seja, 4 × km monitorado processados por mês.
-Custo variável ≈ **R$ 14 por km monitorado por mês** (R$ 12,73 de GPU + ≈ R$ 1,30 de
-armazenamento, transferência e extração de quadros).
+Premissas: 2 passagens por mês em cada sentido, ou seja, 4 km processados por km de rodovia por
+mês. Custo variável ≈ **R$ 3,51 por km processado** (R$ 3,18 de GPU + ≈ R$ 0,33 de
+armazenamento, transferência e extração de quadros), contra o preço de R$ 10.
 
 | Item | Piloto (29,3 km) | 1.000 km | Malha Motiva (5.044 km) |
 |---|---:|---:|---:|
@@ -174,12 +176,15 @@ armazenamento, transferência e extração de quadros).
 | Equipe: 1 eng. de visão computacional, 1 dev full-stack/mobile, 1 analista de campo e suporte, ½ produto/comercial | R$ 70.000 | R$ 70.000 | R$ 70.000 |
 | Reserva para licença comercial do modelo de profundidade (ver riscos) | — | R$ 10.000 | R$ 10.000 |
 | **Custo total mensal** | **≈ R$ 71 mil** | **≈ R$ 97 mil** | **≈ R$ 156 mil** |
-| Receita mensal | R$ 15 mil (piloto de R$ 45 mil em 3 meses) | R$ 60 mil | R$ 227 mil |
-| **Resultado mensal** | investimento | − R$ 37 mil | **+ R$ 71 mil (31%)** |
+| Km processados por mês | 117 | 4.000 | 20.176 |
+| Receita mensal | R$ 15 mil (piloto de R$ 45 mil em 3 meses) | R$ 40 mil | R$ 202 mil |
+| **Resultado mensal** | investimento | − R$ 57 mil | **+ R$ 46 mil (23%)** |
 
-Ponto de equilíbrio, com custos fixos de ≈ R$ 85 mil por mês: **≈ 1.850 km** na faixa de R$ 60
-(margem de R$ 46 por km) ou **≈ 2.750 km** na faixa de R$ 45 (margem de R$ 31 por km), entre 37% e
-55% da malha da Motiva. O piloto é investimento de validação e não precisa se pagar.
+Ponto de equilíbrio, com custos fixos de ≈ R$ 85 mil por mês e margem de R$ 6,49 por km
+processado: **≈ 13.100 km processados por mês**, o equivalente a ≈ 3.300 km de rodovia com 2
+passagens por mês em cada sentido (65% da malha da Motiva). Na estação chuvosa, com mais passagens,
+o mesmo contrato passa do ponto de equilíbrio com menos quilômetros. O piloto é investimento de
+validação e não precisa se pagar.
 
 Custo de captura em campo: **R$ 0 em câmeras novas** no cenário com celular (só o suporte veicular,
 de R$ 20 a R$ 110) e cerca de R$ 8 mil por veículo no cenário com câmeras fixas. O trajeto é o da
@@ -202,8 +207,8 @@ Referência pública de custo direto de roçada (composições SICRO, SP, abril 
 
 Se o GreenV permitir **pular de 10% a 20% dos ciclos** em trechos que não cresceram (abaixo de
 10 cm) e concentrar o esforço onde passou de 30 cm, a economia direta fica entre **R$ 720 e
-R$ 1.440 por km por ano**, contra um custo de assinatura de **R$ 540 por km por ano** no plano da
-malha completa. É um retorno de **1,3 a 2,7 vezes** só em roçada, antes dos ganhos abaixo, que
+R$ 1.440 por km por ano**, contra um custo de **R$ 480 por km por ano** com 2 passagens mensais
+em cada sentido. É um retorno de **1,5 a 3 vezes** só em roçada, antes dos ganhos abaixo, que
 são mais difíceis de colocar em reais.
 
 ### 8.2 Impactos não financeiros
@@ -226,7 +231,7 @@ são mais difíceis de colocar em reais.
 | **Licença do modelo de profundidade** (Depth Anything 3, hoje só para uso pessoal e de pesquisa) | Alto: impede o uso comercial na forma atual | Negociar licença comercial (reserva de custo no item 7.2) ou trocar por um modelo de licença permissiva. A arquitetura modular isola o modelo em um único serviço |
 | **Acurácia automática não validada com trena** | Alto: sem ela, a leitura não deve gerar ordem sozinha | Primeiro objetivo do piloto: campanha com trena em trechos do Rodoanel Oeste. Até lá o sistema marca as medições como `not-ready` e o supervisor confirma pela foto |
 | **Sem referência quilométrica (km da rodovia)** | Médio: o trecho fica no mapa, mas não no km do contrato | Integrar a referência linear da Motiva (marcos quilométricos e os 642 polígonos KMZ) |
-| **Custo de GPU acima do estimado** | Médio | Franquia de passagens no contrato, preço por passagem extra e possibilidade de trocar de fornecedor de GPU sem mudar o código |
+| **Custo de GPU acima do estimado** | Médio | Margem de quase 3 vezes entre o preço (R$ 10) e o custo estimado (R$ 3,51) por km processado, reajuste contratual pelo custo de GPU e possibilidade de trocar de fornecedor de GPU sem mudar o código |
 | **LGPD**: vídeos captam placas e pessoas | Médio | Retenção limitada, acesso por perfil, processamento apenas dos quadros da margem e anonimização de placas e rostos antes de arquivar |
 | **Adoção pela operação** | Médio | Captura sem digitação, aproveitando a rota existente; treinamento no piloto; ordens de serviço no mesmo fluxo |
 | **Condições de captura** (chuva, noite, baixa velocidade de quadros em celulares simples) | Médio | Indicação de qualidade do GPS na tela, escada de formatos de câmera, opção de câmeras fixas e recusa de medição quando a evidência é insuficiente |
@@ -238,7 +243,7 @@ são mais difíceis de colocar em reais.
    com trena e meta de erro abaixo de 5 cm na medição automática.
 2. **Resolver a licença do modelo** antes de qualquer contrato comercial.
 3. **Integrar o km da rodovia e o sistema de ordens da Motiva.**
-4. **Expandir** para as demais concessões rodoviárias da Motiva, com o preço por faixa de volume.
+4. **Expandir** para as demais concessões rodoviárias da Motiva, com o mesmo preço por km processado.
 5. **Ativar a previsão de crescimento** com o histórico real das passagens.
 
 ---
