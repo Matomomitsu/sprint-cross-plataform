@@ -6,7 +6,6 @@ processamento e acompanhar os trechos em que a vegetação da faixa de domínio 
 | | |
 |---|---|
 | 📦 **APK para instalar** | [GreenV-1.1.0.apk — GitHub Releases](https://github.com/Matomomitsu/sprint-cross-plataform/releases/download/v1.1.0/GreenV-1.1.0.apk) |
-| ▶️ **Vídeo de pitch e demonstração** | [YouTube](https://youtu.be/u6RvyVWtJ4M) |
 | 💼 **Plano de negócio** | [PLANO_DE_NEGOCIO.md](PLANO_DE_NEGOCIO.md) |
 | ✅ **Documento de testes** | [TESTES_MANUAIS.md](TESTES_MANUAIS.md) |
 | 🌐 **Painel web e API** | [greenv.matomomitsu.com](https://greenv.matomomitsu.com) · `https://greenvapi.matomomitsu.com` |
@@ -125,7 +124,7 @@ O documento completo, com fontes e premissas, está em [PLANO_DE_NEGOCIO.md](PLA
 | **1** | Concepção e protótipo | Problema, persona, requisitos funcionais e não funcionais, níveis de classificação da vegetação e [protótipo no Figma](https://www.figma.com/design/lVJExT1IOtFD2HEJTX9F85/Challenge-Motiva?node-id=163-384&t=AWaV78ic9flHe7Vu-1) |
 | **2** | Primeiras telas em React Native (Expo) | Splash, login, home, upload e mapa navegáveis, ainda com dados de apresentação |
 | **3** | Migração para Flutter e integração real | App completo consumindo a API publicada: login corporativo, dashboard, coleta em segmentos com GPS e sensores, fila offline, trechos com frames, mapa, ordens de serviço e equipes; 71 testes automatizados; [demonstração em vídeo](https://youtube.com/shorts/irqRgWPfklU?feature=share) |
-| **4** | Versão final, APK e plano de negócio | Correções apontadas na avaliação da Sprint 3, APK de release apontando para a API publicada, cenários de erro testados, correção do teclado no login, [plano de negócio](PLANO_DE_NEGOCIO.md) e [vídeo de pitch](https://youtu.be/u6RvyVWtJ4M) |
+| **4** | Versão final, APK e plano de negócio | Correções apontadas na avaliação da Sprint 3, APK de release apontando para a API publicada, cenários de erro testados, correção do teclado no login e [plano de negócio](PLANO_DE_NEGOCIO.md) |
 
 ## Pendências da Sprint 3 e ajustes da Sprint 4
 
